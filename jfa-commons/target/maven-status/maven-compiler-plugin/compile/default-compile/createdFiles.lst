@@ -1,0 +1,11 @@
+com\jfa\commons\exception\DataAccessException.class
+com\jfa\commons\common\Log.class
+com\jfa\commons\exception\ServiceException.class
+com\jfa\commons\util\Constants.class
+com\jfa\commons\common\BaseRestController.class
+com\jfa\commons\util\FileUtils.class
+com\jfa\commons\exception\ControllerException.class
+com\jfa\commons\common\ResultMap.class
+com\jfa\commons\common\GlobalInterceptor.class
+com\jfa\commons\util\EnvironmentUtils.class
+com\jfa\commons\util\JAXBUtils.class

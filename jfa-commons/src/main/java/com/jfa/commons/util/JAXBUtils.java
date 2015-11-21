@@ -4,6 +4,8 @@
 
 package com.jfa.commons.util;
 
+import com.jfa.commons.exception.DataAccessException;
+
 import javax.xml.bind.*;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -26,14 +28,17 @@ public class JAXBUtils {
      * @throws JAXBException
      */
     @SuppressWarnings("unchecked")
-    public static <T extends Object> T parseXmlDocument(Class<?> clz, File xmlDoc) throws JAXBException {
+    public static <T extends Object> T parseXmlDocument(Class<?> clz, File xmlDoc) throws DataAccessException {
 
-        JAXBContext jaxbContext = JAXBContext.newInstance(clz);
+        try {
+            JAXBContext jaxbContext = JAXBContext.newInstance(clz);
 
-        Unmarshaller shaller = jaxbContext.createUnmarshaller();
+            Unmarshaller shaller = jaxbContext.createUnmarshaller();
 
-        return (T) shaller.unmarshal(xmlDoc);
-
+            return (T) shaller.unmarshal(xmlDoc);
+        } catch (Exception e) {
+            throw new DataAccessException("[JAXB parseXmlDocument Error]", e);
+        }
     }
 
     /**
@@ -45,7 +50,7 @@ public class JAXBUtils {
      * @throws JAXBException
      * @throws FileNotFoundException
      */
-    public static <T extends Object> Boolean generalXmlDocument(T t, String storeFileName) throws JAXBException {
+    public static <T extends Object> Boolean generalXmlDocument(T t, String storeFileName) throws DataAccessException {
         try {
 
             String pkg = t.getClass().getPackage().getName();
@@ -61,7 +66,7 @@ public class JAXBUtils {
             marshaller.marshal(element, new FileOutputStream(storeFileName));
             return true;
         } catch (Exception e) {
-            throw new JAXBException(e);
+            throw new DataAccessException("[JAXB generalXmlDocument Error]", e);
         }
     }
 
@@ -69,20 +74,22 @@ public class JAXBUtils {
      * 生成一个工厂对象,并创建JAXBElement对象
      */
     @SuppressWarnings("unchecked")
-    private static <T extends Object> JAXBElement<T> _invoke(Object o) throws Exception {
+    private static <T extends Object> JAXBElement<T> _invoke(Object o) throws DataAccessException {
+        try {
+            String pkg = o.getClass().getPackage().getName();
+            Class<?> clz = Class.forName(pkg + ".ObjectFactory");
 
-        String pkg = o.getClass().getPackage().getName();
-        Class<?> clz = Class.forName(pkg + ".ObjectFactory");
-
-        Method[] methods = clz.getMethods();
-        Object factory = clz.newInstance();
-        String destName = "create" + o.getClass().getSimpleName();
-        for (Method method : methods) {
-            if (method.getName().equals(destName)) {
-                return (JAXBElement<T>) method.invoke(factory, o);
+            Method[] methods = clz.getMethods();
+            Object factory = clz.newInstance();
+            String destName = "create" + o.getClass().getSimpleName();
+            for (Method method : methods) {
+                if (method.getName().equals(destName)) {
+                    return (JAXBElement<T>) method.invoke(factory, o);
+                }
             }
+            return null;
+        } catch (Exception e) {
+            throw new DataAccessException("[JAXB _invoke Error]", e);
         }
-        return null;
     }
-
 }
