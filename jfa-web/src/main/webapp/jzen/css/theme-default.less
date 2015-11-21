@@ -1,0 +1,131 @@
+// theme name
+@theme-name: default;
+
+// font color
+@body-font-color: #000000;
+@error-font-color: #ff0000;
+
+// border color
+@border-color: #c3c3c3;
+
+// background color;
+@bgc-core-01: #ffffff;
+// core background 01
+@bgc-core-02: #ffffff;
+// core background 02
+@bgc-aux-01: #000000;
+// auxiliary background 01
+@bgc-aux-02: #f3f3f3;
+// auxiliary background 02
+@bgc-aux-03: #f3f3f3;
+// auxiliary background 03
+
+// border style
+@border-style-solid: solid;
+@border-style-dotted: dotted;
+
+// max radius
+@max-radius : 10;
+
+//******************** attention to rename this function ************************//
+.theme-default();
+.theme-default() {
+  //******************** attention to rename this function ************************//
+
+  /**--S border style **/
+  .generate-border-core(5);
+  .generate-border-core(@n, @i : 1) when (@i <= @n) {
+    .generate-border((@i * 1px));
+    .generate-border-core(@n, @i + 1);
+  }
+
+  .generate-border(@width) {
+    .@{theme-name} .border-@{border-style-solid}-@{width} {
+      border: @width @border-style-solid @border-color;
+    }
+    .@{theme-name} .border-@{border-style-dotted}-@{width} {
+      border: @width @border-style-dotted @border-color;
+    }
+
+    .@{theme-name} .border-top-@{border-style-solid}-@{width} {
+      border-top: @width @border-style-solid @border-color;
+    }
+    .@{theme-name} .border-top-@{border-style-dotted}-@{width} {
+      border-top: @width @border-style-dotted @border-color;
+    }
+    .@{theme-name} .border-left-@{border-style-solid}-@{width} {
+      border-left: @width @border-style-solid @border-color;
+    }
+    .@{theme-name} .border-left-@{border-style-dotted}-@{width} {
+      border-left: @width @border-style-dotted @border-color;
+    }
+    .@{theme-name} .border-right-@{border-style-solid}-@{width} {
+      border-top: @width @border-style-solid @border-color;
+    }
+    .@{theme-name} .border-right-@{border-style-dotted}-@{width} {
+      border-top: @width @border-style-dotted @border-color;
+    }
+    .@{theme-name} .border-bottom-@{border-style-solid}-@{width} {
+      border-top: @width @border-style-solid @border-color;
+    }
+    .@{theme-name} .border-bottom-@{border-style-dotted}-@{width} {
+      border-top: @width @border-style-dotted @border-color;
+    }
+  }
+
+  .generate-border2();
+  .generate-border2() {
+    .@{theme-name} .bd {
+      border: 1px solid @border-color;
+    }
+    .@{theme-name} .bt {
+      border-top: 1px solid @border-color;
+    }
+    .@{theme-name} .bl {
+      border-left: 1px solid @border-color;
+    }
+    .@{theme-name} .br {
+      border-right: 1px solid @border-color;
+    }
+    .@{theme-name} .bb {
+      border-bottom: 1px solid @border-color;
+    }
+  }
+
+  /**--E border style **/
+
+  /**--S border radius */
+  .generate-border-radius(@max-radius);
+  .generate-border-radius(@max , @i : 1) when (@i <= @max) {
+    .radius-@{i} {
+      border-radius: (@i * 1px);
+    }
+    .generate-border-radius(@max, @i + 1);
+  }
+
+  /**--E border radius */
+
+  /**--S background color */
+  .generate-background();
+  .generate-background() {
+    .@{theme-name} .bg-core-01 {
+      background: @bgc-core-01;
+    }
+    .@{theme-name} .bg-core-02 {
+      background: @bgc-core-02;
+    }
+    .@{theme-name} .bg-aux-01 {
+      background: @bgc-aux-01;
+    }
+    .@{theme-name} .bg-aux-02 {
+      background: @bgc-aux-02;
+    }
+    .@{theme-name} .bg-aux-03 {
+      background: @bgc-aux-03;
+    }
+  }
+
+  /**--E background color */
+
+}
+

@@ -4,7 +4,7 @@
 
 require.config({
 	//the configuration is not usefully, because require.js had default configuration, and the default value is current position of config.js 
-	baseUrl		: Consts.getAppPath('jzen/scripts/lib'),	
+	baseUrl		: 'jzen/scripts/lib', //Consts.getAppPath('jzen/scripts/lib'),
 	paths		: {
     	'jquery'			: 'jquery/jquery-2.1.4',
 		'angular'			: 'angular/angular',
@@ -26,7 +26,7 @@ require.config({
 		'model'			    : 'util/model',
 		'view'			    : 'util/view',
 		'util'			    : 'util/util',
-		'app'				: Consts.getAppPath("js")
+		'app'				: 'js', // Consts.getAppPath("js")
   	},
 	jsx			: {
 		fileExtension		: '.jsx'

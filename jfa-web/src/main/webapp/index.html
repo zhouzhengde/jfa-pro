@@ -7,9 +7,25 @@
 <head>
     <meta charset="UTF-8">
     <title></title>
-    <script src=""></script>
+    <script src="jzen/scripts/lib/require.js"></script>
+
+
+    <script>
+
+
+        jzen(['jquery', 'model' ], function($, Model){
+
+            var User = Model.create();
+
+            var user = new User.init();
+
+            console.log(user);
+
+
+        });
+
+    </script>
 </head>
 <body>
-HH
 </body>
 </html>
