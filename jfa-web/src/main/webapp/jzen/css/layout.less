@@ -1,0 +1,31 @@
+@north-height : 200px;
+@west-center-east-height : auto;
+@west-width : 0;
+@center-width: 100%;
+@east-width: 0px;
+@south-height : 30px;
+
+.ui-layout{
+  float: left;
+}
+
+.ui-layout-north:extend(.ui-layout){
+  width: 100%;
+  height: @north-height;
+}
+.ui-layout-west:extend(.ui-layout){
+  width: @west-width;
+  height: @west-center-east-height;
+}
+.ui-layout-center:extend(.ui-layout){
+  width: @center-width;
+  height: @west-center-east-height;
+}
+.ui-layout-east:extend(.ui-layout){
+  width: @east-width;
+  height: @west-center-east-height;
+}
+.ui-layout-south:extend(.ui-layout){
+  width: 100%;
+  height: @south-height;
+}

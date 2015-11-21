@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <resourceExtensions />
+    <wildcardResourcePatterns>
+      <entry name="!?*.java" />
+      <entry name="!?*.form" />
+      <entry name="!?*.class" />
+      <entry name="!?*.groovy" />
+      <entry name="!?*.scala" />
+      <entry name="!?*.flex" />
+      <entry name="!?*.kt" />
+      <entry name="!?*.clj" />
+      <entry name="!?*.aj" />
+    </wildcardResourcePatterns>
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="false">
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="jfa-app" />
+        <module name="jfa-commons" />
+        <module name="jfa-data" />
+        <module name="jfa-restful" />
+        <module name="jfa-runner" />
+        <module name="jfa-server" />
+        <module name="jfa-web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="jfa-app" target="1.5" />
+      <module name="jfa-commons" target="1.5" />
+      <module name="jfa-data" target="1.5" />
+      <module name="jfa-pro" target="1.5" />
+      <module name="jfa-restful" target="1.5" />
+      <module name="jfa-runner" target="1.6" />
+      <module name="jfa-server" target="1.5" />
+      <module name="jfa-service" target="1.5" />
+      <module name="jfa-web" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
