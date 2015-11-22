@@ -1,10 +1,10 @@
 /*
  * Copyright (c) 2015. Bond(China), java freestyle app
  */
-var context = "";
+var context = "http://localhost:8080";
 require.config({
     //the configuration is not usefully, because require.js had default configuration, and the default value is current position of config.js
-    baseUrl: context + 'jzen/scripts/lib',
+    baseUrl: context + '/jzen/scripts/lib',
     paths: {
         'angular-resource': 'angular/angular-resource',
         'angular-sanitize': 'angular/angular-sanitize',
@@ -17,7 +17,7 @@ require.config({
         'angular-mock': 'angular/angular-mock',
         'angular': 'angular/angular',
         "bootstrap": 'bootstrap/js/bootstrap.min',
-        "JSXTransformer": 'vendor/JSXTransformer',
+        "JSXTransformer": 'react/JSXTransformer',
         'react': 'react/react-with-addons.min',
         'jsPlumb': 'jsPlumb/jsPlumb-2.0.4',
         'jquery': 'jquery/jquery-2.1.4',
@@ -28,10 +28,14 @@ require.config({
         'view': 'util/view',
         'util': 'util/util',
         'style': 'util/style-adjust',
+        'jsx': 'react/jsx',
+        'text': 'react/text',
         'app': '../../../js'
     },
     jsx: {
-        fileExtension: '.jsx'
+        fileExtension: '.jsx',
+        harmony: true,
+        stripTypes: true
     },
     map: {
         '*': {

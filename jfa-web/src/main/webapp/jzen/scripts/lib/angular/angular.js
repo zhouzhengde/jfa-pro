@@ -6143,7 +6143,7 @@ function $HttpProvider() {
      *
      * @example
       <example>
-        <file name="index.html">
+        <file name="example1.html">
           <div ng-controller="FetchCtrl">
             <select ng-model="method">
               <option>GET</option>
@@ -7690,7 +7690,7 @@ function $LocationProvider(){
          $scope.message = 'Hello World!';
        }
      </file>
-     <file name="index.html">
+     <file name="example1.html">
        <div ng-controller="LogCtrl">
          <p>Reload this page with open console, enter text and hit the log button...</p>
          Message:
@@ -10720,7 +10720,7 @@ function $SceDelegateProvider() {
  *
  * @example
  <example module="mySceApp">
-  <file name="index.html">
+  <file name="example1.html">
     <div ng-controller="myAppController as myCtrl">
       <i ng-bind-html="myCtrl.explicitlyTrustedHtml" id="explicitlyTrustedHtml"></i><br><br>
       <b>User comments</b><br>
@@ -14198,7 +14198,7 @@ var VALID_CLASS = 'ng-valid',
           };
         });
     </file>
-    <file name="index.html">
+    <file name="example1.html">
       <form name="myForm">
        <div contenteditable
             name="myWidget" ng-model="userContent"
@@ -14880,7 +14880,7 @@ function classDirective(name, selector) {
  *
  * @example Example that demostrates basic bindings via ngClass directive.
    <example>
-     <file name="index.html">
+     <file name="example1.html">
        <p ng-class="{strike: strike, bold: bold, red: red}">Map Syntax Example</p>
        <input type="checkbox" ng-model="bold"> bold
        <input type="checkbox" ng-model="strike"> strike
@@ -14939,7 +14939,7 @@ function classDirective(name, selector) {
    Example that demostrates how addition and removal of classes can be animated.
 
    <example animations="true">
-     <file name="index.html">
+     <file name="example1.html">
       <input type="button" value="set" ng-click="myVar='my-class'">
       <input type="button" value="clear" ng-click="myVar=''">
       <br>
@@ -15002,7 +15002,7 @@ var ngClassDirective = classDirective('', true);
  *
  * @example
    <example>
-     <file name="index.html">
+     <file name="example1.html">
         <ol ng-init="names=['John', 'Mary', 'Cate', 'Suz']">
           <li ng-repeat="name in names">
            <span ng-class-odd="'odd'" ng-class-even="'even'">
@@ -15049,7 +15049,7 @@ var ngClassOddDirective = classDirective('Odd', 0);
  *
  * @example
    <example>
-     <file name="index.html">
+     <file name="example1.html">
         <ol ng-init="names=['John', 'Mary', 'Cate', 'Suz']">
           <li ng-repeat="name in names">
            <span ng-class-odd="'odd'" ng-class-even="'even'">
@@ -15686,7 +15686,7 @@ forEach(
  *
  * @example
   <example animations="true">
-    <file name="index.html">
+    <file name="example1.html">
       Click me: <input type="checkbox" ng-model="checked" ng-init="checked=true" /><br/>
       Show when checked:
       <span ng-if="checked" class="animate-if">
@@ -15794,7 +15794,7 @@ var ngIfDirective = ['$animate', function($animate) {
  *
  * @example
   <example animations="true">
-    <file name="index.html">
+    <file name="example1.html">
      <div ng-controller="Ctrl">
        <select ng-model="template" ng-options="t.name for t in templates">
         <option value="">(blank)</option>
@@ -16359,7 +16359,7 @@ var ngPluralizeDirective = ['$locale', '$interpolate', function($locale, $interp
  * This example initializes the scope to a list of names and
  * then uses `ngRepeat` to display every person:
   <example animations="true">
-    <file name="index.html">
+    <file name="example1.html">
       <div ng-init="friends = [
         {name:'John', age:25, gender:'boy'},
         {name:'Jessie', age:30, gender:'girl'},
@@ -16718,7 +16718,7 @@ var ngRepeatDirective = ['$parse', '$animate', function($parse, $animate) {
  *
  * @example
   <example animations="true">
-    <file name="index.html">
+    <file name="example1.html">
       Click me: <input type="checkbox" ng-model="checked"><br/>
       <div>
         Show:
@@ -16870,7 +16870,7 @@ var ngShowDirective = ['$animate', function($animate) {
  *
  * @example
   <example animations="true">
-    <file name="index.html">
+    <file name="example1.html">
       Click me: <input type="checkbox" ng-model="checked"><br/>
       <div>
         Show:
@@ -16952,7 +16952,7 @@ var ngHideDirective = ['$animate', function($animate) {
  *
  * @example
    <example>
-     <file name="index.html">
+     <file name="example1.html">
         <input type="button" value="set" ng-click="myStyle={color:'red'}">
         <input type="button" value="clear" ng-click="myStyle={}">
         <br/>
@@ -17029,7 +17029,7 @@ var ngStyleDirective = ngDirective(function(scope, element, attr) {
  *
  * @example
   <example animations="true">
-    <file name="index.html">
+    <file name="example1.html">
       <div ng-controller="Ctrl">
         <select ng-model="selection" ng-options="item for item in items">
         </select>

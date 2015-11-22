@@ -4,7 +4,8 @@
 
 .theme-default(@theme-name) {
 
-  @import "ui-component.less";
+  // font family
+  //font-family: 微软雅黑 Arial;
 
   // font color
   @body-font-color: #000000;
@@ -12,6 +13,9 @@
 
   // border color
   @border-color: #c3c3c3;
+
+  // default form & input & select checkbox
+  @input-default: #cccccc;
 
   // background color 01;
   @bg-01: #8654ff;
@@ -57,8 +61,17 @@
   // max radius
   @max-radius : 10;
 
+  @import "ui-component";
+
+  div, section, article, head, footer, td, ul, li, ol, dl, dt, dd, span, label {
+    font-family: 微软雅黑 Arial;
+    letter-spacing: 1px;
+    font-weight: 300;
+  }
+
   /**--S border style **/
-  .generate-border-core(5);
+  .generate-border-core
+  (5);
   .generate-border-core(@n, @i : 1) when (@i <= @n) {
     .generate-border((@i * 1px));
     .generate-border-core(@n, @i + 1);

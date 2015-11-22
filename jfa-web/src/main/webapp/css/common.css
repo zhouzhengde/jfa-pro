@@ -22,7 +22,10 @@
 .layout-simple .ui-layout-south,
 .theme-default .box-container,
 .theme-default .box-group,
-.theme-default .box {
+.theme-default .box,
+.theme-default .input,
+.theme-default .input .input-lbl,
+.theme-default .input .input-area {
   float: left;
 }
 .layout-default .ui-layout-north {
@@ -2718,7 +2721,10 @@
 .layout-simple .ui-layout-south,
 .theme-default .box-container,
 .theme-default .box-group,
-.theme-default .box {
+.theme-default .box,
+.theme-default .input,
+.theme-default .input .input-lbl,
+.theme-default .input .input-area {
   float: left;
 }
 .layout-simple .ui-layout-north {
@@ -5390,6 +5396,7 @@
   margin-left: 20px;
 }
 /**--S margin padding height width **/
+/**--S ui box style **/
 .theme-default .box-container {
   width: 100%;
   height: auto;
@@ -5416,6 +5423,38 @@
 }
 .theme-default .box-container .box-group .box:nth-child(2n + 3) {
   margin-left: 1%;
+}
+/**--E ui box style **/
+/**--S ui input style **/
+.theme-default .input .input-lbl {
+  width: 150px;
+  text-align: right;
+  font-size: 14px;
+  font-weight: 300;
+  padding-top: 2px;
+}
+.theme-default .input .input-area .default {
+  color: #cccccc;
+  border: 1px solid #cccccc;
+}
+/**--E ui input style **/
+div,
+section,
+article,
+head,
+footer,
+td,
+ul,
+li,
+ol,
+dl,
+dt,
+dd,
+span,
+label {
+  font-family: 微软雅黑 Arial;
+  letter-spacing: 1px;
+  font-weight: 300;
 }
 /**--S border style **/
 .theme-default .border-solid-1px {

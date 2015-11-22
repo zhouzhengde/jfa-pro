@@ -257,7 +257,7 @@ function $RouteProvider(){
        to get it working on jsfiddle as well.
 
      <example module="ngView" deps="angular-route.js">
-       <file name="index.html">
+       <file name="example1.html">
          <div ng-controller="MainCntl">
            Choose:
            <a href="Book/Moby">Moby</a> |
@@ -602,7 +602,7 @@ ngRouteModule.provider('$routeParams', $RouteParamsProvider);
  * @example
  * <pre>
  *  // Given:
- *  // URL: http://server.com/index.html#/Chapter/1/Section/2?search=moby
+ *  // URL: http://server.com/example1.html#/Chapter/1/Section/2?search=moby
  *  // Route: /Chapter/:chapterId/Section/:sectionId
  *  //
  *  // Then
@@ -621,7 +621,7 @@ function $RouteParamsProvider() {
  * @description
  * # Overview
  * `ngView` is a directive that complements the {@link ngRoute.$route $route} service by
- * including the rendered template of the current route into the main layout (`index.html`) file.
+ * including the rendered template of the current route into the main layout (`example1.html`) file.
  * Every time the current route changes, the included view changes with it according to the
  * configuration of the `$route` service.
  *
@@ -634,7 +634,7 @@ function $RouteParamsProvider() {
  * @scope
  * @example
     <example module="ngViewExample" deps="angular-route.js" animations="true">
-      <file name="index.html">
+      <file name="example1.html">
         <div ng-controller="MainCntl as main">
           Choose:
           <a href="Book/Moby">Moby</a> |

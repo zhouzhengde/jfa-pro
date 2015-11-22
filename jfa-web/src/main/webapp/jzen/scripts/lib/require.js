@@ -2087,7 +2087,7 @@ var requirejs, require, define, jzen;
 
     jzen = function (arr, func) {
 
-        require(['jzen/scripts/lib/config'], function (config) {
+        require(['http://localhost:8080/jzen/scripts/lib/config.js'], function (config) {
             require.apply(require, [arr, func]);
         });
         return require;
