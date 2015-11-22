@@ -1,61 +1,36 @@
+// theme name
+@theme-name: default;
+
+// font color
+@body-font-color: #000000;
+@error-font-color: #ff0000;
+
+// border color
+@border-color: #c3c3c3;
+
+// background color;
+@bgc-core-01: #ffffff;
+// core background 01
+@bgc-core-02: #ffffff;
+// core background 02
+@bgc-aux-01: #000000;
+// auxiliary background 01
+@bgc-aux-02: #f3f3f3;
+// auxiliary background 02
+@bgc-aux-03: #f3f3f3;
+// auxiliary background 03
+
+// border style
+@border-style-solid: solid;
+@border-style-dotted: dotted;
+
+// max radius
+@max-radius : 10;
+
 //******************** attention to rename this function ************************//
-.theme-default(theme-default);
-//******************** attention to rename this function ************************//
-
-.theme-default(@theme-name) {
-
-  @import "ui-component.less";
-
-  // font color
-  @body-font-color: #000000;
-  @error-font-color: #ff0000;
-
-  // border color
-  @border-color: #c3c3c3;
-
-  // background color 01;
-  @bg-01: #8654ff;
-  // core background 02
-  @bg-02: #46baff;
-  // auxiliary background 01
-  @bg-03: #ffffff;
-  // auxiliary background 02
-  @bg-04: #8654ff;
-  // auxiliary background 03
-  @bg-05: #c0d8f3;
-
-  // btn background color 01;
-  @btn-bg-01: #6feeee;
-  // btn background color 02;
-  @btn-bg-02: #6feeee;
-  // btn background color 03;
-  @btn-bg-03: #6feeee;
-  // btn background color 04;
-  @btn-bg-04: #6feeee;
-  // btn background color 05;
-  @btn-bg-05: #6feeee;
-
-  // btn  color 01;
-  @btn-color-01: #000000;
-  // btn  color 02;
-  @btn-color-02: #000000;
-  // btn  color 03;
-  @btn-color-03: #000000;
-  // btn  color 04;
-  @btn-color-04: #000000;
-  // btn  color 05;
-  @btn-color-05: #000000;
-
-  // border style
-  @border-style-solid: solid;
-  @border-style-dotted: dotted;
-
-  // ui box
-  @box-spacing : 15px;
-  @box-radius: 5px;
-
-  // max radius
-  @max-radius : 10;
+.theme-default();
+.theme-default() {
+  //******************** attention to rename this function ************************//
 
   /**--S border style **/
   .generate-border-core(5);
@@ -133,46 +108,21 @@
   /**--S background color */
   .generate-background();
   .generate-background() {
-    .@{theme-name} .bg-01 {
-      background: @bg-01;
+    .@{theme-name} .bg-core-01 {
+      background: @bgc-core-01;
     }
-    .@{theme-name} .bg-02 {
-      background: @bg-02;
+    .@{theme-name} .bg-core-02 {
+      background: @bgc-core-02;
     }
-    .@{theme-name} .bg-03 {
-      background: @bg-03;
+    .@{theme-name} .bg-aux-01 {
+      background: @bgc-aux-01;
     }
-    .@{theme-name} .bg-04 {
-      background: @bg-04;
+    .@{theme-name} .bg-aux-02 {
+      background: @bgc-aux-02;
     }
-    .@{theme-name} .bg-05 {
-      background: @bg-05;
+    .@{theme-name} .bg-aux-03 {
+      background: @bgc-aux-03;
     }
-  }
-
-  .@{theme-name} .btn-01 {
-    background: @btn-bg-01;
-    color: @btn-color-01;
-  }
-
-  .@{theme-name} .btn-02 {
-    background: @btn-bg-02;
-    color: @btn-color-02;
-  }
-
-  .@{theme-name} .btn-03 {
-    background: @btn-bg-03;
-    color: @btn-color-03;
-  }
-
-  .@{theme-name} .btn-04 {
-    background: @btn-bg-04;
-    color: @btn-color-04;
-  }
-
-  .@{theme-name} .btn-05 {
-    background: @btn-bg-05;
-    color: @btn-color-05;
   }
 
   /**--E background color */
