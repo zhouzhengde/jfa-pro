@@ -21,6 +21,8 @@ require.config({
         'react': 'react/react-with-addons.min',
         'jsPlumb': 'jsPlumb/jsPlumb-2.0.4',
         'jquery': 'jquery/jquery-2.1.4',
+        'icheck': 'jquery/icheck/icheck',
+        'validator': 'jquery/validator/jquery.validationEngine',
         'raphael': 'raphael/raphael-min',
         'underscore': 'util/underscore',
         'control': 'util/control',
@@ -50,6 +52,19 @@ require.config({
                 'css!../lib/bootstrap/css/bootstrap.min',
                 'css!../../../css/common',
                 'css!../../../css/function',
+            ]
+        },
+        'icheck': {
+            'deps': [
+                'jquery',
+                'css!../lib/jquery/icheck/skins/all'
+            ]
+        },
+        'validator': {
+            'deps': [
+                'jquery/validator/languages/jquery.validationEngine-en',
+                'jquery/validator/languages/jquery.validationEngine-zh_CN',
+                'jquery/validator/contrib/other-validations'
             ]
         },
         'angular': {

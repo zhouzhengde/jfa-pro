@@ -27,6 +27,10 @@ jzen(['jquery',
                 <Input id="userName9" name="userName" label="用户名：" type="text" tips="Please Entry 2"   onchange={onchange}/>
                 <Input id="userName7" name="userName" label="用户名：" type="text" tips="Please Entry 2"   onchange={onchange}/>
                 <Input id="userName8" name="userName" label="用户名：" type="text" tips="Please Entry 2"   onchange={onchange}/>
+                <Input id="userName8" name="userName" label="用户名：" type="text" tips="Please Entry 2"   onchange={onchange}/>
+                <Input id="userName8" name="userName" label="用户名：" type="text" tips="Please Entry 2"   onchange={onchange}/>
+                <Input id="userName8" name="userName" label="用户名：" type="text" tips="Please Entry 2"   onchange={onchange}/>
+                <Input id="userName8" name="userName" label="用户名：" type="text" tips="Please Entry 2"   onchange={onchange}/>
             </div>,
             document.getElementById("input-demo")
         );
