@@ -12,8 +12,7 @@
 
 
     <script>
-        jzen(['jquery', 'model', 'bootstrap', 'react', 'jsx!react-ui/input'], function ($, Model, bootstrap, React, Input) {
-
+        jzen(['jquery', 'model', 'bootstrap', 'react', 'jsx!react-ui/input', 'validator'], function ($, Model, bootstrap, React, Input, Validator) {
 
         });
     </script>
@@ -32,7 +31,10 @@
         <div class="box-container">
             <div class="box-group">
                 <div id="input-demo" class="box w100p h400 ">
-
+                    <form>
+                        <iput type="text" name="username"/>
+                        <iput type="text" name="age"/>
+                    </form>
                 </div>
             </div>
         </div>

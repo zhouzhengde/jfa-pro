@@ -1,3 +1,7 @@
+/*
+ * Copyright (c) 2015. Bond(China), java freestyle app
+ */
+
 (function ($) {
 
 	/**
