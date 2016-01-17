@@ -13,6 +13,10 @@
     <name>jfa-data</name>
     <url>http://maven.apache.org</url>
 
+    <properties>
+        <mybatis.version>3.3.0</mybatis.version>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>jfa-pro</groupId>
@@ -20,6 +24,7 @@
             <version>${jfa.version}</version>
             <scope>provided</scope>
         </dependency>
+
     </dependencies>
 
 </project>

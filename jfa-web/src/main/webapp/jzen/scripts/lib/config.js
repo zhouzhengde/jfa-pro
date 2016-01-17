@@ -1,9 +1,10 @@
 /*
  * Copyright (c) 2015. Bond(China), java freestyle app
  */
-var context = "http://localhost:8080";
+var context = "";
 require.config({
     //the configuration is not usefully, because require.js had default configuration, and the default value is current position of config.js
+    urlArgs : 'v1.0.0',
     baseUrl: context + '/jzen/scripts/lib',
     paths: {
         'angular-resource': 'angular/angular-resource',
@@ -23,6 +24,8 @@ require.config({
         'jquery': 'jquery/jquery-2.1.4',
         'icheck': 'jquery/icheck/icheck',
         'validator': 'jquery/validator/jquery.validationEngine',
+        'validator-en': 'jquery/validator/languages/jquery.validationEngine-en',
+        'validator-zh_CN': 'jquery/validator/languages/jquery.validationEngine-zh_CN',
         'raphael': 'raphael/raphael-min',
         'underscore': 'util/underscore',
         'control': 'util/control',
@@ -32,7 +35,9 @@ require.config({
         'style': 'util/style-adjust',
         'jsx': 'react/jsx',
         'text': 'react/text',
-        'app': '../../../js'
+        'root': '../../../js',
+        'app': '../../../js/app',
+        'module': '../../../module'
     },
     jsx: {
         fileExtension: '.jsx',
@@ -62,9 +67,18 @@ require.config({
         },
         'validator': {
             'deps': [
-                'jquery/validator/languages/jquery.validationEngine-en',
-                'jquery/validator/languages/jquery.validationEngine-zh_CN',
-                'jquery/validator/contrib/other-validations'
+                'jquery',
+                'validator-en'
+            ]
+        },
+        'validator-en' : {
+            'deps' :[
+                'jquery'
+            ]
+        },
+        'validator-zh_CN' : {
+            'deps' :[
+                'jquery'
             ]
         },
         'angular': {
@@ -106,5 +120,40 @@ require.config({
             deps: ['angular'],
             exports: 'angular-touch'
         }
-    }
+    },
+    deps : [
+        'bootstrap'
+    ]
+});
+
+(function(global){
+    global.appPath = '<%=request.getContextPath()%>';
+    global.Consts = {};
+    global.Consts.getAppPath = function(url){
+        if(url == undefined || url == null){
+            url = "";
+        }
+        return global.appPath + "/" + url;
+    };
+    global.Consts.getAppJsPath = function(js){
+        return global.appPath + '/js/' + js;
+    };
+})(window.top);
+
+/**
+ * Created by Admin on 2015/11/21.
+ * bootstraps angular onto the window.document node
+ */
+define([
+    'require',
+    'angular',
+    'jquery',
+    'angular-route',
+    'root/routes',
+    'app'
+], function (require, ng, $) {
+    'use strict';
+    $(function () {
+        ng.bootstrap(document, ['app']);
+    });
 });

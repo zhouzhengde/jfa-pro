@@ -2085,14 +2085,12 @@ var requirejs, require, define, jzen;
     //Set up with config info.
     req(cfg);
 
-    jzen = function (arr, func) {
-
-        require(['http://localhost:8080/jzen/scripts/lib/config.js'], function (config) {
+   /* jzen = function (arr, func) {
+        require(['/jzen/scripts/lib/config.js'], function (config) {
             require.apply(require, [arr, func]);
         });
         return require;
-    };
-
+    };*/
 }(this));
 
 

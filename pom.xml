@@ -19,7 +19,7 @@
         <spring.data.version>Gosling-RELEASE</spring.data.version>
         <spring.data.mongodb.version>1.7.0.RELEASE</spring.data.mongodb.version>
         <mongodb.version>3.0.3</mongodb.version>
-        <start.class>com.jfa.app.ApplicationRunner</start.class>
+        <start.class>com.jfa.web.runner.ApplicationRunner</start.class>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 

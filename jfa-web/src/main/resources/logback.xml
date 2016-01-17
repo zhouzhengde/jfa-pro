@@ -24,8 +24,8 @@
         <appender-ref ref="dailyRollingFileAppender"/>
         <appender-ref ref="consoleAppender"/>
     </logger>
-    <root>
+   <!-- <root>
         <level value="INFO"/>
         <appender-ref ref="consoleAppender"/>
-    </root>
+    </root>-->
 </configuration>

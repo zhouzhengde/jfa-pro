@@ -4,10 +4,10 @@
 
 package com.jfa.commons.util;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
+import java.io.*;
 import java.nio.channels.FileChannel;
 
 /**
@@ -17,6 +17,8 @@ import java.nio.channels.FileChannel;
  */
 public class FileUtils {
 
+    private static final Logger LOGGER = LoggerFactory.getLogger(WebBook.class);
+
     private FileUtils() {
     }
 
@@ -25,9 +27,8 @@ public class FileUtils {
      *
      * @param src  可为路径，也可是文件
      * @param dest 必需为路径
-     * @throws IOException
      */
-    public static void copy(File src, File dest) throws IOException {
+    public static void copy(File src, File dest) {
 
         if (dest.isFile()) {
             return;
@@ -50,7 +51,11 @@ public class FileUtils {
 
         File realFile = new File(dest.getAbsoluteFile() + "/" + src.getName());
         if (!realFile.exists()) {
-            realFile.createNewFile();
+            try {
+                realFile.createNewFile();
+            } catch (IOException e) {
+                LOGGER.error("[Create file error]", e);
+            }
         }
 
         FileInputStream fi = null;
@@ -66,25 +71,12 @@ public class FileUtils {
             in.transferTo(0, in.size(), out);
 
         } catch (IOException e) {
-            throw e;
+            LOGGER.error("[Transfer Channel error]", e);
         } finally {
-            try {
-                if (fi != null) {
-                    fi.close();
-                }
-                if (in != null) {
-                    in.close();
-                }
-                if (fo != null) {
-                    fo.close();
-                }
-                if (out != null) {
-                    out.close();
-                }
-            } catch (IOException e) {
-                throw e;
-            }
-
+            close(fi);
+            close(in);
+            close(fo);
+            close(out);
         }
     }
 
@@ -168,5 +160,50 @@ public class FileUtils {
             flag = true;
         }
         return flag;
+    }
+
+    /**
+     * 关闭文件流
+     *
+     * @param in InputStream
+     */
+    public static void close(InputStream in) {
+        if (in != null) {
+            try {
+                in.close();
+            } catch (IOException e) {
+                LOGGER.error("[Close file steam error]", e);
+            }
+        }
+    }
+
+    /**
+     * 关闭文件流
+     *
+     * @param out
+     */
+    public static void close(OutputStream out) {
+        if (out != null) {
+            try {
+                out.close();
+            } catch (IOException e) {
+                LOGGER.error("[Close file steam error]", e);
+            }
+        }
+    }
+
+    /**
+     * 关闭文件流
+     *
+     * @param channel FileChannel
+     */
+    public static void close(FileChannel channel) {
+        if (channel != null) {
+            try {
+                channel.close();
+            } catch (IOException e) {
+                LOGGER.error("[Close file steam error]", e);
+            }
+        }
     }
 }
