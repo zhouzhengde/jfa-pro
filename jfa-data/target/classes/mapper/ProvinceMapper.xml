@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+  ~ Copyright (c) 2016. Bond(China), java freestyle app
+  -->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jfa.data.mapper.ProvinceMapper">
+
+    <resultMap id="provinceResultMap" type="com.jfa.data.entity.Province">
+        <result column="id" property="id"></result>
+        <result column="name" property="name"></result>
+        <result column="code" property="code"></result>
+    </resultMap>
+
+    <select id="findByCountryId" resultMap="provinceResultMap" parameterType="int">
+        SELECT * FROM province p WHERE p.country_id = #{value}
+    </select>
+
+</mapper>

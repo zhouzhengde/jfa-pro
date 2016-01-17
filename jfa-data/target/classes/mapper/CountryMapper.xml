@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright (c) 2016. Bond(China), java freestyle app
+  -->
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jfa.data.mapper.CountryMapper">
+
+    <resultMap id="countryResultMap" type="com.jfa.data.entity.Country">
+        <result column="id" property="id"></result>
+        <result column="name" property="name"></result>
+        <result column="code" property="code"></result>
+        <!-- <collection property="provinces" ofType="com.jfa.data.entity.Province" column="cid">
+             <id column="pid" property="id"/>
+             <result column="pcode" property="code"/>
+             <result column="pname" property="name"/>
+         </collection>-->
+       <!-- <association property="provinces" column="id" select="com.jfa.data.mapper.ProvinceMapper.findByCountryId"
+                     resultMap="com.jfa.data.mapper.ProvinceMapper.provinceResultMap" >
+        </association>-->
+    </resultMap>
+
+    <!-- <select id="findAll" resultMap="countryResultMap">
+         SELECT
+           c1.id AS cid,
+           c1.code AS ccode,
+           c1.name AS cname,
+           p1.id AS pid,
+           p1.code AS pcode,
+           p1.name AS pname
+         FROM country c1, province p1
+         WHERE c1.id = p1.country_id
+     </select>-->
+
+    <select id="findAll" resultMap="countryResultMap">
+        SELECT
+        *
+        FROM country
+    </select>
+
+</mapper>
