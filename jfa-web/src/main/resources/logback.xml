@@ -21,11 +21,11 @@
     </appender>
 
     <logger name="com.jfa" additivity="true" level="TRACE,ERROR,INFO,DEBUG">
-        <appender-ref ref="dailyRollingFileAppender"/>
+        <!--  <appender-ref ref="dailyRollingFileAppender"/>-->
         <appender-ref ref="consoleAppender"/>
     </logger>
-   <!-- <root>
+    <root>
         <level value="INFO"/>
         <appender-ref ref="consoleAppender"/>
-    </root>-->
+    </root>
 </configuration>

@@ -5,8 +5,14 @@
 package com.jfa.commons.util;
 
 import net.sf.jxls.transformer.XLSTransformer;
+import org.apache.poi.hssf.usermodel.HSSFCellStyle;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
+import org.apache.poi.ss.usermodel.CellStyle;
+import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -27,10 +33,37 @@ public class WebBook {
 
     private String contentType;
 
-    private File templateFile;
+    /**
+     * 需要导出的文件类型
+     */
+    public enum FileType {
 
+        XLS, XLS_X;
 
-    public void export(Map<String, Object> dataSource, HttpServletRequest request, HttpServletResponse response) {
+        public Workbook createWorkbook() {
+            Workbook workbook = null;
+            switch (this) {
+                case XLS:
+                    workbook = new HSSFWorkbook();
+                    break;
+                case XLS_X:
+                    workbook = new XSSFWorkbook();
+                    break;
+            }
+            return workbook;
+        }
+
+    }
+
+    /**
+     * 客户化导出
+     */
+    public interface CustomizeWorkbook {
+
+        Workbook customize(Workbook workbook);
+    }
+
+    public void export(File templateFile, Map<String, Object> dataSource, HttpServletRequest request, HttpServletResponse response) {
 
         if (templateFile != null && !templateFile.exists()) {
             return;
@@ -63,16 +96,37 @@ public class WebBook {
         }
     }
 
+
+    public void export(FileType fileType, CustomizeWorkbook customizeWorkbook, HttpServletResponse response) {
+
+        InputStream in = null;
+        OutputStream out = null;
+
+        try {
+
+            response.reset();
+            response.setHeader("Content-Disposition", "attachment;filename=" + URLEncoder.encode(fileName, "UTF-8"));
+            response.setContentType(getContentType());
+            out = response.getOutputStream();
+
+            Workbook workbook = fileType.createWorkbook();
+            customizeWorkbook.customize(workbook).write(out);
+            out.flush();
+
+        } catch (IOException e) {
+            LOGGER.error("[WebBook export]: Occur an error", e);
+        } finally {
+            FileUtils.close(in);
+            FileUtils.close(out);
+        }
+    }
+
     public void setFileName(String fileName) {
         this.fileName = fileName;
     }
 
     public void setContentType(String contentType) {
         this.contentType = contentType;
-    }
-
-    public void setTemplateFile(File templateFile) {
-        this.templateFile = templateFile;
     }
 
     public String getContentType() {
