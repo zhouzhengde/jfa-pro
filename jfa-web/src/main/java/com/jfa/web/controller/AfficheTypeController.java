@@ -19,7 +19,6 @@ public class AfficheTypeController {
     public Map<String, Object> findAll(@RequestBody AfficheType afficheType){
 
 
-
         return ResultMap.success();
     }
 }

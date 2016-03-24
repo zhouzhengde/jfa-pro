@@ -4,6 +4,7 @@
 
 package com.jfa.commons.util;
 
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -160,6 +161,34 @@ public class FileUtils {
             flag = true;
         }
         return flag;
+    }
+
+    /**
+     * 读取文件
+     * @param file
+     * @return
+     */
+    public static String read(File file) {
+
+        InputStream inputStream = null;
+        StringBuilder sb = new StringBuilder();
+
+        try {
+            inputStream = new FileInputStream(file);
+            byte[] bts = new byte[1024];
+            int len = inputStream.read(bts);
+
+            while (len != -1) {
+                sb.append(new String(bts, 0, len));
+                len = inputStream.read(bts);
+            }
+        } catch (Exception e) {
+
+            LOGGER.error("[FileUtils read file]", e);
+        } finally {
+            close(inputStream);
+            return sb.toString();
+        }
     }
 
     /**

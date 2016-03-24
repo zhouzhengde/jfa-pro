@@ -111,7 +111,7 @@ public class WebBook {
 
             Workbook workbook = fileType.createWorkbook();
             customizeWorkbook.customize(workbook).write(out);
-            out.flush();
+            //out.flush();
 
         } catch (IOException e) {
             LOGGER.error("[WebBook export]: Occur an error", e);
