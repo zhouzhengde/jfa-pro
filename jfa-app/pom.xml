@@ -14,20 +14,48 @@
     <url>http://maven.apache.org</url>
 
     <dependencies>
-        <dependency>
-            <groupId>jfa-pro</groupId>
-            <artifactId>jfa-commons</artifactId>
-            <version>${jfa.version}</version>
-            <scope>provided</scope>
-        </dependency>
 
-        <dependency>
+       <dependency>
             <groupId>jfa-pro</groupId>
             <artifactId>jfa-data</artifactId>
             <version>${jfa.version}</version>
             <scope>provided</scope>
         </dependency>
 
+        <dependency>
+            <groupId>jfa-pro</groupId>
+            <artifactId>jfa-runner</artifactId>
+            <version>${jfa.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>jfa-pro</groupId>
+            <artifactId>jfa-commons</artifactId>
+            <version>${jfa.version}</version>
+        </dependency>
+
     </dependencies>
+
+    <build>
+        <finalName>jfa-app</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.version}</version>
+                <configuration>
+                    <mainClass>${start.class}</mainClass>
+                    <layout>WAR</layout>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>

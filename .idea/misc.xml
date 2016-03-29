@@ -13,6 +13,7 @@
         <option value="$PROJECT_DIR$/jfa-web/pom.xml" />
         <option value="$PROJECT_DIR$/jfa-commons/pom.xml" />
         <option value="$PROJECT_DIR$/jfa-app/pom.xml" />
+        <option value="$PROJECT_DIR$/jfa-runner/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">

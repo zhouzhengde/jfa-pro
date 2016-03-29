@@ -16,7 +16,7 @@ import java.nio.channels.FileChannel;
  *
  * @author BondZhou
  */
-public class FileUtils {
+public final class FileUtils {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(WebBook.class);
 

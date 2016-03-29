@@ -37,7 +37,7 @@
       <module name="jfa-data" target="1.5" />
       <module name="jfa-pro" target="1.5" />
       <module name="jfa-restful" target="1.5" />
-      <module name="jfa-runner" target="1.6" />
+      <module name="jfa-runner" target="1.5" />
       <module name="jfa-server" target="1.5" />
       <module name="jfa-service" target="1.5" />
       <module name="jfa-web" target="1.5" />

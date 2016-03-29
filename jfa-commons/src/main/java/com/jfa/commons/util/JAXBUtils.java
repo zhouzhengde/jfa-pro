@@ -13,7 +13,7 @@ import java.io.FileOutputStream;
 import java.lang.reflect.Method;
 
 
-public class JAXBUtils {
+public final class JAXBUtils {
 
     private JAXBUtils() {
     }

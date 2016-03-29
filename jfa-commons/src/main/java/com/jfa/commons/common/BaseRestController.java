@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Map;
 
-@RestController
-@RequestMapping("api")
+//@RestController
+//@RequestMapping("api")
 public abstract class BaseRestController {
 
     @ExceptionHandler(Exception.class)

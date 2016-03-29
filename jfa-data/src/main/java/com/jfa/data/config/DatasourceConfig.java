@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.event.GenericApplicationListenerAdapter;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
@@ -30,6 +31,7 @@ public class DatasourceConfig {
     public DataSource dataSource() {
 
         HikariConfig config = new HikariConfig();
+
         config.setDriverClassName(dataSourceProperties.getDriverClassName());
         config.setJdbcUrl(dataSourceProperties.getUrl());
         config.setUsername(dataSourceProperties.getUsername());

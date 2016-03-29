@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/jfa-commons/jfa-commons.iml" filepath="$PROJECT_DIR$/jfa-commons/jfa-commons.iml" />
       <module fileurl="file://$PROJECT_DIR$/jfa-data/jfa-data.iml" filepath="$PROJECT_DIR$/jfa-data/jfa-data.iml" />
       <module fileurl="file://$PROJECT_DIR$/jfa-pro.iml" filepath="$PROJECT_DIR$/jfa-pro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jfa-runner/jfa-runner.iml" filepath="$PROJECT_DIR$/jfa-runner/jfa-runner.iml" />
       <module fileurl="file://$PROJECT_DIR$/jfa-web/jfa-web.iml" filepath="$PROJECT_DIR$/jfa-web/jfa-web.iml" />
     </modules>
   </component>

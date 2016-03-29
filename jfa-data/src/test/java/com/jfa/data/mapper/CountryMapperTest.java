@@ -4,8 +4,9 @@
 
 package com.jfa.data.mapper;
 
-import com.jfa.data.ApplicationRunner;
+
 import com.jfa.data.entity.Country;
+import com.jfa.runner.ApplicationRunner;
 import junit.framework.TestCase;
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -4,7 +4,7 @@
 
 package com.jfa.commons.util;
 
-public class EnvironmentUtils {
+public final class EnvironmentUtils {
 
     private EnvironmentUtils() {
     }
