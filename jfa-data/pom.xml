@@ -22,72 +22,32 @@
 
     <dependencies>
 
-        <!--<dependency>
-            <groupId>jfa-pro</groupId>
-            <artifactId>jfa-runner</artifactId>
-            <version>${jfa.version}</version>
-            <scope>provided</scope>
-        </dependency>-->
-
-        <dependency>
-            <groupId>jfa-pro</groupId>
-            <artifactId>jfa-commons</artifactId>
-            <version>${jfa.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>com.zaxxer</groupId>
-            <artifactId>HikariCP-java6</artifactId>
-            <version>2.3.12</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc14</artifactId>
-            <version>10.2.0.1.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-mongodb</artifactId>
-            <version>${spring.boot.version}</version>
-        </dependency>
-
         <dependency>
             <groupId>org.mongodb</groupId>
             <artifactId>mongo-java-driver</artifactId>
             <version>${mongodb.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>jfa-pro</groupId>
+            <artifactId>jfa-common</artifactId>
+            <version>${jfa.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
-        <finalName>jfa-app</finalName>
+        <finalName>jfa-data</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring.boot.version}</version>
                 <configuration>
-                    <mainClass>com.jfa.data.ApplicationRunner</mainClass>
-                    <layout>WAR</layout>
+                    <mainClass>${start.class}</mainClass>
+                    <layout>JAR</layout>
                 </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>
-
 </project>

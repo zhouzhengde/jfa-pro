@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/jfa-app/jfa-app.iml" filepath="$PROJECT_DIR$/jfa-app/jfa-app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/jfa-commons/jfa-commons.iml" filepath="$PROJECT_DIR$/jfa-commons/jfa-commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/jfa-common/jfa-common.iml" filepath="$PROJECT_DIR$/jfa-common/jfa-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/jfa-data/jfa-data.iml" filepath="$PROJECT_DIR$/jfa-data/jfa-data.iml" />
       <module fileurl="file://$PROJECT_DIR$/jfa-pro.iml" filepath="$PROJECT_DIR$/jfa-pro.iml" />
       <module fileurl="file://$PROJECT_DIR$/jfa-runner/jfa-runner.iml" filepath="$PROJECT_DIR$/jfa-runner/jfa-runner.iml" />

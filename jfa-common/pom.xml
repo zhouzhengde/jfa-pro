@@ -7,22 +7,26 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <groupId>jfa-pro</groupId>
-    <artifactId>jfa-commons</artifactId>
+    <artifactId>jfa-common</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
-    <name>jfa-commons</name>
+    <name>jfa-common</name>
     <url>http://maven.apache.org</url>
 
-
     <properties>
-        <jxls.version>1.0.6</jxls.version>
-        <json.lib.version>1.0.2</json.lib.version>
-        <json.path.version>2.2.0</json.path.version>
+
     </properties>
 
     <dependencies>
 
+        <dependency>
+            <groupId>jfa-pro</groupId>
+            <artifactId>jfa-runner</artifactId>
+            <version>${jfa.version}</version>
+        </dependency>
+
+        <!--S jfa-commons-->
         <dependency>
             <groupId>net.sf.jxls</groupId>
             <artifactId>jxls-reader</artifactId>
@@ -47,17 +51,12 @@
             <artifactId>json-path-assert</artifactId>
             <version>${json.path.version}</version>
         </dependency>
-
-        <dependency>
-            <groupId>jfa-pro</groupId>
-            <artifactId>jfa-runner</artifactId>
-            <version>${jfa.version}</version>
-        </dependency>
+        <!--E jfa-commons-->
 
     </dependencies>
 
     <build>
-        <finalName>jfa-commons</finalName>
+        <finalName>jfa-common</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -65,15 +64,8 @@
                 <version>${spring.boot.version}</version>
                 <configuration>
                     <mainClass>${start.class}</mainClass>
-                    <layout>WAR</layout>
+                    <layout>JAR</layout>
                 </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
         </plugins>
     </build>

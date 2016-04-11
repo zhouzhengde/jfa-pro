@@ -23,6 +23,7 @@
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="jfa-app" />
+        <module name="jfa-common" />
         <module name="jfa-commons" />
         <module name="jfa-data" />
         <module name="jfa-restful" />
@@ -33,6 +34,7 @@
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="jfa-app" target="1.5" />
+      <module name="jfa-common" target="1.5" />
       <module name="jfa-commons" target="1.5" />
       <module name="jfa-data" target="1.5" />
       <module name="jfa-pro" target="1.5" />
