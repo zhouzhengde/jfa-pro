@@ -21,7 +21,7 @@ import java.util.Map;
 /**
  * To Export data to a format file
  */
-public class WebBook {
+public final class WebBook {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(WebBook.class);
 

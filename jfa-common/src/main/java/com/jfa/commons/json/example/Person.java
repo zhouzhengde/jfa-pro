@@ -16,11 +16,13 @@ public class Person implements Serializable {
     @JsonPathValue(path = "Name")
     private String name;
 
-    @JsonPathValue(path = "Contact.MobilePhone")
+    @JsonPathValue(path = "Contact.MobilePhone", dataType = JsonPathValue.DataType.Date, pattern = "yyyy-NM-ddTHH:mm:ss 08:00")
     private String mobilePhone;
 
     @JsonPathValue(path = "Contact.Email")
     private String email;
+
+
 
     public int getId() {
         return id;

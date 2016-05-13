@@ -2,9 +2,20 @@
  * Copyright (c) 2015. Bond(China), java freestyle app
  */
 var context = "";
+
+var script = document.getElementsByTagName("script")[0];
+var version = script.attributes['data-main'].value;
+var debug = script.attributes['data-debug'].value;
+
+if (debug && debug == 'true') {
+    version = Math.random();
+} else {
+    version = version.substring(version.indexOf("v=") + 2);
+}
+
 require.config({
     //the configuration is not usefully, because require.js had default configuration, and the default value is current position of config.js
-    urlArgs : 'v1.0.0',
+    urlArgs: 'v=' + version,
     baseUrl: context + '/jzen/scripts/lib',
     paths: {
         'angular-resource': 'angular/angular-resource',
@@ -18,6 +29,7 @@ require.config({
         'angular-mock': 'angular/angular-mock',
         'angular': 'angular/angular',
         "bootstrap": 'bootstrap/js/bootstrap.min',
+        "flatui": 'flatui/js/flat-ui.min',
         "JSXTransformer": 'react/JSXTransformer',
         'react': 'react/react-with-addons.min',
         'jsPlumb': 'jsPlumb/jsPlumb-2.0.4',
@@ -36,8 +48,9 @@ require.config({
         'jsx': 'react/jsx',
         'text': 'react/text',
         'root': '../../../js',
-        'app': '../../../js/app',
-        'module': '../../../module'
+        'app': '../../../js/.md',
+        'module': '../../../module',
+        'lib': '../../../jzen/scripts/lib'
     },
     jsx: {
         fileExtension: '.jsx',
@@ -50,11 +63,23 @@ require.config({
         }
     },
     shim: {
+        'flatui': {
+            'deps': [
+                'css!../lib/bootstrap/css/bootstrap.min',
+                'css!../lib/flatui/css/flat-ui',
+                //'css!../lib/flatui/css/mixins',
+                'css!../../../css/common',
+                'css!../../../css/function',
+                'jquery',
+                'bootstrap'
+            ]
+        },
         'bootstrap': {
             'deps': [
                 'jquery',
-                'style',
+                //'style',
                 'css!../lib/bootstrap/css/bootstrap.min',
+                //'css!../lib/flatui/css/mixins',
                 'css!../../../css/common',
                 'css!../../../css/function',
             ]
@@ -71,13 +96,13 @@ require.config({
                 'validator-en'
             ]
         },
-        'validator-en' : {
-            'deps' :[
+        'validator-en': {
+            'deps': [
                 'jquery'
             ]
         },
-        'validator-zh_CN' : {
-            'deps' :[
+        'validator-zh_CN': {
+            'deps': [
                 'jquery'
             ]
         },
@@ -121,21 +146,21 @@ require.config({
             exports: 'angular-touch'
         }
     },
-    deps : [
-        'bootstrap'
+    deps: [
+        'flatui'
     ]
 });
 
-(function(global){
-    global.appPath = '<%=request.getContextPath()%>';
+(function (global) {
+    global.appPath = '';
     global.Consts = {};
-    global.Consts.getAppPath = function(url){
-        if(url == undefined || url == null){
+    global.Consts.getAppPath = function (url) {
+        if (url == undefined || url == null) {
             url = "";
         }
         return global.appPath + "/" + url;
     };
-    global.Consts.getAppJsPath = function(js){
+    global.Consts.getAppJsPath = function (js) {
         return global.appPath + '/js/' + js;
     };
 })(window.top);
@@ -148,12 +173,27 @@ define([
     'require',
     'angular',
     'jquery',
+    'underscore',
     'angular-route',
-    'root/routes',
+    'angular-resource',
+    '!root/.cnf',
     'app'
-], function (require, ng, $) {
+], function (require, ng, $, _, ngRoute, ngResource, cnf, app) {
     'use strict';
+
     $(function () {
-        ng.bootstrap(document, ['app']);
-    });
+
+        var mds = ['app'];
+        var cnfs = [];
+
+        _.each(cnf, function (md) {
+            mds.push(md.name);
+            cnfs.push(md.path + '/.cnf');
+        });
+
+        require(cnfs, function () {
+            ng.bootstrap(document, mds);
+        });
+
+    }.bind(this));
 });

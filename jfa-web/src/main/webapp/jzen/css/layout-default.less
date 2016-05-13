@@ -1,17 +1,17 @@
 .layout-default(layout-default);
 .layout-default(@layout-name) {
   // north height
-  @north-height : 10%;
+  @north-height : auto;
   // middle height
-  @west-center-east-height : 85%;
+  @west-center-east-height : auto;
   // left or west width
-  @west-width : 20%;
+  @west-width : 100%;
   // center width;
-  @center-width: 80%;
+  @center-width: 100%;
   // east width
-  @east-width: 0px;
+  @east-width: 100%;
   // south height
-  @south-height : 5%;
+  @south-height : 100%;
 
   // max width & height value
   @max-width-height-1 : 200;
@@ -29,14 +29,22 @@
     }
   }
 
-  @media only screen and (max-height: 768px ) {
+/*  @media only screen and (max-height: 768px ) {
     body {
       height: 768px;
     }
-  }
+  }*/
 
   .ui-layout {
     float: left;
+  }
+
+  .float-left{
+    float: left;
+  }
+
+  .float-right{
+    float: right;
   }
 
   .@{layout-name} .ui-layout-north:extend(.ui-layout) {
@@ -94,7 +102,7 @@
     .@{layout-name} .w@{i}p {
       width: (@i) * 1%;
     }
-    .@{layout-name} .h@{i} {
+    .@{layout-name} .h@{i}p {
       height: (@i) * 1%;
     }
     .generate-width-height-set3(@n, (@i + 1));
@@ -114,6 +122,9 @@
     .@{layout-name} .pl@{i} {
       padding-left: (@i * 1px);
     }
+    .@{layout-name} .pl@{i} {
+      padding: (@i * 1px);
+    }
     .@{layout-name} .mt@{i} {
       margin-top: (@i * 1px);
     }
@@ -125,6 +136,9 @@
     }
     .@{layout-name} .ml@{i} {
       margin-left: (@i * 1px);
+    }
+    .@{layout-name} .m@{i} {
+      margin: (@i * 1px);
     }
     .generate-margin-padding-set(@n, (@i + 1));
   }
