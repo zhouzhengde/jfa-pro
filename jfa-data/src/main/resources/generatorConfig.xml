@@ -13,8 +13,6 @@
 
     <context id="context" targetRuntime="MyBatis3">
 
-        <plugin type="com.jfa.data.generator.JfaGenerator"/>
-
         <commentGenerator>
             <property name="suppressAllComments" value="true"/>
         </commentGenerator>
@@ -36,7 +34,7 @@
             <property name="enableSubPackages" value="false"/>
         </sqlMapGenerator>
 
-        <javaClientGenerator targetPackage="com.jfa.data.mapper" targetProject="src/main/java" type="XMLMAPPER">
+        <javaClientGenerator targetPackage="mapper" targetProject="src/main/java" type="XMLMAPPER">
             <property name="enableSubPackages" value="true"/>
 
         </javaClientGenerator>

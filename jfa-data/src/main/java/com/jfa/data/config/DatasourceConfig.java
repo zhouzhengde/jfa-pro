@@ -19,8 +19,8 @@ import org.springframework.transaction.PlatformTransactionManager;
 
 import javax.sql.DataSource;
 
-@Configuration
-@MapperScan("com.jfa.data.mapper")
+//@Configuration
+//@MapperScan("com.jfa.data.mapper")
 public class DatasourceConfig {
 
     @Autowired
@@ -49,7 +49,7 @@ public class DatasourceConfig {
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource());
         PathMatchingResourcePatternResolver resolver = new PathMatchingResourcePatternResolver();
-        sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:/mapper/*.xml"));
+        sqlSessionFactoryBean.setMapperLocations(resolver.getResources("classpath:/com.jfa.data.mapper/*.xml"));
         return sqlSessionFactoryBean.getObject();
     }
 }
