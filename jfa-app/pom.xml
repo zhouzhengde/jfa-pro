@@ -3,7 +3,7 @@
     <parent>
         <artifactId>jfa-pro</artifactId>
         <groupId>jfa-pro</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -16,18 +16,30 @@
     <dependencies>
         <dependency>
             <groupId>jfa-pro</groupId>
-            <artifactId>jfa-commons</artifactId>
-            <version>${jfa.version}</version>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>jfa-pro</groupId>
             <artifactId>jfa-data</artifactId>
             <version>${jfa.version}</version>
-            <scope>provided</scope>
         </dependency>
-
     </dependencies>
 
+    <build>
+        <finalName>jfa-app</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.version}</version>
+                <configuration>
+                    <mainClass>${start.class}</mainClass>
+                    <layout>JAR</layout>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
 </project>

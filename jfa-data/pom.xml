@@ -3,7 +3,7 @@
     <parent>
         <artifactId>jfa-pro</artifactId>
         <groupId>jfa-pro</groupId>
-        <version>1.0-SNAPSHOT</version>
+        <version>1.0.0</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -22,11 +22,16 @@
 
     <dependencies>
 
+        <!-- <dependency>
+         <groupId>mysql</groupId>
+         <artifactId>mysql-connector-java</artifactId>
+         <version>5.1.38</version>
+     </dependency>-->
+
         <dependency>
             <groupId>jfa-pro</groupId>
-            <artifactId>jfa-commons</artifactId>
+            <artifactId>jfa-common</artifactId>
             <version>${jfa.version}</version>
-            <scope>provided</scope>
         </dependency>
 
         <dependency>
@@ -42,11 +47,34 @@
         </dependency>
 
         <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc14</artifactId>
-            <version>10.2.0.1.0</version>
+            <groupId>org.mybatis.generator</groupId>
+            <artifactId>mybatis-generator-core</artifactId>
+            <version>1.3.2</version>
         </dependency>
 
     </dependencies>
 
+    <build>
+        <finalName>jfa-data</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.version}</version>
+                <configuration>
+                    <mainClass>${start.class}</mainClass>
+                    <layout>JAR</layout>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.2</version>
+                <configuration>
+                    <verbose>true</verbose>
+                    <overwrite>true</overwrite>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>
