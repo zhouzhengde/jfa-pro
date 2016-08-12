@@ -10,4 +10,5 @@ This a java project, just java background business. In here, you can write contr
 This a java project, it's accessed database by spring-data framework, you just define dao interface, it's very simply and convinient. 
 
 #注意
-由于考虑到发布中央仓库，对项目结构有自v1.0.0有所重大调整
+1.由于考虑到发布中央仓库，对项目结构有自v1.0.0有所重大调整
+2.此项目只做技术研究，具体可用项目请参考“jfa”仓库下的项目
