@@ -8,3 +8,6 @@ This a java-web project, there are have many javasrcipt lib, this project just c
 This a java project, just java background business. In here, you can write controller & service, don't write more than up module. just consider controller & service.
 # jfa-data
 This a java project, it's accessed database by spring-data framework, you just define dao interface, it's very simply and convinient. 
+
+#注意
+由于考虑到发布中央仓库，对项目结构有自v1.0.0有所重大调整
